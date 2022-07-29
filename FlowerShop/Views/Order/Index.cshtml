@@ -1,0 +1,36 @@
+﻿@using FlowerShop.Models
+@model List<OrderModel>
+@{
+    ViewBag.Title = "Listar Orders";
+}
+
+<h1>Orders</h1>
+<p>@Html.ActionLink("Add", "AddUpdate", "Order", new { Id = "" }, new { @class = "btn btn-default" })</p>
+
+
+<table class="table table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CustomerId</th>
+            <th>PurchaseDate</th>
+            <th>TotalPrice</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.CustomerId</td>
+                <td>@m.PurchaseDate</td>
+                <td>@m.TotalPrice</td>
+                <td>
+                    @Html.ActionLink("Edit", "AddUpdate", "Order", new { Id = m.Id }, new { @class = "btn btn-default" }) &nbsp; &nbsp;
+                    @Html.ActionLink("Remove", "Remove", "Order", new { Id = m.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

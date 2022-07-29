@@ -1,0 +1,39 @@
+﻿@using FlowerShop.Models
+@model ProductModel
+@{
+    ViewBag.Title = "AddUpdate";
+}
+
+<h2>AddUpdate</h2>
+
+@using (Html.BeginForm("AddUpdate", "Product", FormMethod.Post))
+{
+    <h4>Product</h4>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Name:</label>
+            @Html.TextBoxFor(m => Model.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Type:</label>
+            @Html.TextBoxFor(m => Model.Type, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Price:</label>
+            @Html.TextBoxFor(m => Model.Price, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Quantity:</label>
+            @Html.TextBoxFor(m => Model.Quantity, new { @class = "form-control" })
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+}
+<p>@Html.ActionLink("Go back", "Index", "Product")</p>
