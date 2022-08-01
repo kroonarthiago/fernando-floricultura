@@ -16,15 +16,18 @@
 
     $.ajax({
         type: "GET",
-        url: "@Url.Action("GetByIdJson" , "Customer")",
+        url: "@Url.Action("GetByIdJson", "Customer")",
         data: {         
             "Id": 2
         },
-        dataType: "json"
     })
-    .done(function () {
+    .done(function (response) {
+
+        debugger;
+
         alert("sucesso");
         console.log("sucesso");
+        console.log(response);
     })
     .fail(function (error) {
         alert("ocorreu erro");

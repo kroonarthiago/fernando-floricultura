@@ -27,7 +27,7 @@ namespace FlowerShop.Controllers
         {
             var Customer = new FlowerShopService.Customer();
 
-            return Json(null,JsonRequestBehavior.AllowGet);
+            return Json(Customer.Get(id), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
