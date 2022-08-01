@@ -22,6 +22,7 @@ namespace FlowerShop.Controllers
 
             return View(Customer.Get(id));
         }
+
         [HttpGet]
         public JsonResult GetByIdJson(int id)
         {
