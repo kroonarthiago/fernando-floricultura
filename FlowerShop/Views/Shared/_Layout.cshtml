@@ -52,36 +52,31 @@
 
 
 <script>
+    var globalCallback;
+
+    function animateSquare() {
+        const width = $(window).width() - 10;
+        const heigth = $(window).height() - $(".navbar.navbar-inverse.navbar-fixed-top").height() - 10;
+        $(".square")
+            .animate({ left: width }, 2000)
+            .animate({ top: heigth }, 2000)
+            .animate({ left: 0 }, 2000)
+            .animate({ top: 0 }, 2000, animateSquare);
+
+
+        console.log("teste");
+
+        if (globalCallback)
+            globalCallback();
+        else
+            globalCallback = function () {
+                alert("callback");
+            };
+
+    }
+
+
     $(document).ready(function () {
-        //conteudo
-
-        function animateSquare(callbackFunction) {
-            const width = $(window).width() - 10;
-            const heigth = $(window).height() - $(".navbar.navbar-inverse.navbar-fixed-top").height() - 10;
-            $(".square")
-                .animate({ left: width }, 2000)
-                .animate({ top: heigth }, 2000)
-                .animate({ left: 0 }, 2000)
-                .animate({ top: 0 }, 2000, animateSquare());
-
-
-            console.log("teste");
-
-            if (callbackFunction) callbackFunction();
-
-        }
-
-        function callback() {
-            alert("callback");
-        }
-
-
-
         animateSquare();
-
-        //if (document.getElementsByClassName("square").left == 0 && document.getElementsByClassName("square").top == 0) animateSquare();
-
-
-
     });
 </script>
