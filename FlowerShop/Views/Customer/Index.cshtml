@@ -13,7 +13,7 @@
             url: "@Url.Action("GetCustomersPartialView", "Customer")",
         })
         .done(function (response) {
-            alert("sucesso");
+            debugger;
             console.log("sucesso");
             console.log(response);
 
@@ -24,9 +24,9 @@
             }, 1000);
         })
         .fail(function (error) {
-            alert("ocorreu erro");
-            //console.log(error);
+            debugger;
             console.log("ocorreu erro");
+            console.log(error);
         });
     });
 </script>

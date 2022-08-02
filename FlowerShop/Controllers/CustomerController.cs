@@ -35,7 +35,9 @@ namespace FlowerShop.Controllers
         public PartialViewResult GetCustomersPartialView()
         {
             var ListCustomer = new FlowerShopService.Customer();
-            return PartialView(ListCustomer.List());
+            var ViewModel = ListCustomer.List();
+
+            return PartialView("_Customers", ViewModel);
         }
 
         [HttpGet]
