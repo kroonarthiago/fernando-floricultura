@@ -32,6 +32,13 @@ namespace FlowerShop.Controllers
         }
 
         [HttpGet]
+        public PartialViewResult GetCustomersPartialView()
+        {
+            var ListCustomer = new FlowerShopService.Customer();
+            return PartialView(ListCustomer.List());
+        }
+
+        [HttpGet]
         public ActionResult AddUpdate(int? id)
         {
             var Customer = new FlowerShopService.Customer();

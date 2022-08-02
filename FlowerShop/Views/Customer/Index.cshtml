@@ -8,68 +8,32 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        //conteudo
-        setTimeout(function () {
-            $("#customerTable").fadeIn("slow");
-        }, 5000);
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetCustomersPartialView", "Customer")",
+        })
+        .done(function (response) {
+            alert("sucesso");
+            console.log("sucesso");
+            console.log(response);
+
+            $(".customers-container").html(response);
+
+            setTimeout(function () {
+                $("#customerTable").fadeIn("slow");
+            }, 1000);
+        })
+        .fail(function (error) {
+            alert("ocorreu erro");
+            //console.log(error);
+            console.log("ocorreu erro");
+        });
     });
-
-    $.ajax({
-        type: "GET",
-        url: "@Url.Action("GetById", "Customer")",
-        data: {         
-            "Id": 2
-        },
-    })
-    .done(function (response) {
-
-        debugger;
-
-        alert("sucesso");
-        console.log("sucesso");
-        console.log(response);
-    })
-    .fail(function (error) {
-        alert("ocorreu erro");
-        //console.log(error);
-        console.log("ocorreu erro");
-    });
-
 </script>
 
 <h1>Customers</h1>
 <p>@Html.ActionLink("Add", "AddUpdate", "Customer", new { Id = "" }, new { @class = "btn btn-default" })</p>
 
+<div class="customers-container">
 
-<table class="table table" id="customerTable" style="display:none;">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Rg</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>StreetName</th>
-            <th>HouseNumber</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var m in Model)
-        {
-            <tr>
-                <td>@m.Id</td>
-                <td>@m.Rg</td>
-                <td>@m.Name</td>
-                <td>@m.Phone</td>
-                <td>@m.StreetName</td>
-                <td>@m.HouseNumber</td>
-                <td>
-                    @Html.ActionLink("Edit", "AddUpdate", "Customer", new { Id = m.Id }, new { @class = "btn btn-default" }) &nbsp; &nbsp;
-                    @Html.ActionLink("Remove", "Remove", "Customer", new { Id = m.Id }, new { @class = "btn btn-default" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-
-
+</div>

@@ -231,6 +231,7 @@
     <Content Include="Views\Order_Product\AddUpdate.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\AddUpdate.cshtml" />
+    <Content Include="Views\Customer\_Customers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
